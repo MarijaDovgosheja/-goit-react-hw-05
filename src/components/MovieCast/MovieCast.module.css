@@ -1,0 +1,39 @@
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.castItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.castItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-top: 8px;
+}
+
+.castItemName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  word-wrap: break-word; /* переносити довгі імена */
+  min-height: 3em;
+  margin-top: 10px;
+  color: #333;
+}
