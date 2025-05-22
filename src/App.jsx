@@ -8,7 +8,7 @@ const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
 const MovieDetailsPage = lazy(() =>
   import("./pages/MovieDetailsPage/MovieDetailsPage")
 );
-const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieCast = lazy(() => import("./components/MovieCast/MovieСast"));
 const MovieReviews = lazy(() =>
   import("./components/MovieReviews/MovieReviews")
 );
