@@ -1,5 +1,5 @@
 import { Link, Outlet, useParams, useLocation } from "react-router-dom";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { getMovieDetails } from "../../api/tmdb";
 import { getImageUrl } from "../../api/tmdb";
 import css from "./MovieDetailsPage.module.css";
@@ -7,8 +7,9 @@ import css from "./MovieDetailsPage.module.css";
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const location = useLocation();
+  const backLinkRef = useRef(location.state?.from || "/movies");
+
   const [movie, setMovie] = useState(null);
-  const backLink = location.state?.from || "/movies";
 
   useEffect(() => {
     getMovieDetails(movieId).then(setMovie);
@@ -18,7 +19,7 @@ export default function MovieDetailsPage() {
 
   return (
     <div className={css.containerDetails}>
-      <Link to={backLink} className={css.backLink}>
+      <Link to={backLinkRef.current} className={css.backLink}>
         ← Go back
       </Link>
 
@@ -53,12 +54,12 @@ export default function MovieDetailsPage() {
 
       <ul className={css.links}>
         <li>
-          <Link to="cast" state={{ from: backLink }}>
+          <Link to="cast" state={{ from: backLinkRef.current }}>
             Cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: backLink }}>
+          <Link to="reviews" state={{ from: backLinkRef.current }}>
             Reviews
           </Link>
         </li>
